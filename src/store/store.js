@@ -8,15 +8,22 @@ const store = new Vuex.Store({
     plugins:[createPersistedState()],
     state:{
         UM:'',
+        IsLogin:false,
     },
     mutations:{
         changeUM(state,value){
             state.UM = value;
+        },
+        changeIsLogin(state,value){
+            state.IsLogin = value
         }
     },
     actions:{
         actionChangeUM(contex,value){
-            // contex.commit('changeUM',value)
+            contex.commit('changeUM',value)
+        },
+        actionChangeIsLogin(contex,value){
+            contex.commit('changeIsLogin',value)
         }
     }
 })

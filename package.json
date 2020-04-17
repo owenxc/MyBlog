@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "iview": "^1.0.1",
+    "iview": "^3.5.4",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "vue": "^2.5.2",
@@ -64,5 +64,15 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".postcssrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owenxc/MyProject.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owenxc/MyProject/issues"
+  },
+  "homepage": "https://github.com/owenxc/MyProject#readme"
 }
