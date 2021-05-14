@@ -2,7 +2,6 @@ import VueRouter from 'vue-router'
 
 const login = resolve => require(["@/components/login/login"],resolve);
 const mainPage = resolve =>require(["@/components/mainPage"],resolve);
-
 const routers = [
   { path: '/', redirect:'/login'},
   { path:'/login', component:login},
