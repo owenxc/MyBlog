@@ -6,7 +6,11 @@ import mainPage from '../components/mainPage'
 const routers = [
   { path: '/', redirect:'/login'},
   { path:'/login', component:login},
-  { path:'/mainPage', component:mainPage}
+  { path:'/mainPage', component:mainPage
+  
+
+
+  }
 ]
 
 const router = new VueRouter({

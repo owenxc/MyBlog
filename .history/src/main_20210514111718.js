@@ -2,13 +2,24 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Iview from 'iview'
 import App from './App'
 import router from './router//router'
+import 'iview/dist/styles/iview.css'
 import store from './store/store'
-import './assets/css/common.less'
+
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+Vue.use(Iview)
+
+//导航守卫
+// router.beforeEach((to, from, next) => {
+//   if(to.path === '/login'){
+//     return next()
+//   }
+// })
+
 
 new Vue({
   el: '#app',

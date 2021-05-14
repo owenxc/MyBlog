@@ -1,16 +1,24 @@
 import VueRouter from 'vue-router'
 
-const login = resolve => require(["@/components/login/login"],resolve);
-const mainPage = resolve =>require(["@/components/mainPage"],resolve);
+import login from '../components/login/login'
 import mainPage from '../components/mainPage'
+Vue.use(VueRouter)
+
+
 const routers = [
   { path: '/', redirect:'/login'},
   { path:'/login', component:login},
-  { path:'/mainPage', component:mainPage}
+  { path:'/mainPage', component:mainPage,
+    //  children:[
+    //    {path:'/asiderBar', component:asiderBar, meta:{isLogin:true}}
+    //  ]
+
+
+  }
 ]
 
 const router = new VueRouter({
    mode:'hash',
-   routes:routers
+   routes:routes
 })
 export default router
