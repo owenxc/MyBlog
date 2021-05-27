@@ -1,20 +1,19 @@
 <template>
     <div id="particles">
         <div class="login">
-           <div>
+           <!-- <div>O W E N</div> -->
            <el-form>
                <el-form-item>
                    <el-input v-model="account" placeholder="账号">
-                       <i slot="prefix" class="el-input__icon el-icon-user"></i>
+                       <i slot="prefix" class="el-input__icon el-icon-s-custom"></i>
                    </el-input>
                </el-form-item>
                <el-form-item>
-                    <el-input v-model="password" placeholder="密码">
-                       <i slot="prefix" class="el-input__icon el-icon-key"></i>
+                    <el-input v-model="password">
+                       <i slot="prefix" class="el-input__icon el-icon-s-custom"></i>
                    </el-input>
                </el-form-item>
            </el-form>
-           </div>
         </div>
     </div>
 </template>
@@ -41,7 +40,7 @@ import particlesJson from '@/assets/particles.json'
       z-index: 2;
       position: absolute;
       width: 380px;
-      border-radius: 2px;
+      border-radius: 5px;
       background: #fff;
       box-shadow: 0 0 5px #333;
       top: 50%;

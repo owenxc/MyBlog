@@ -10,7 +10,7 @@ import './assets/css/common.less'
 import particles from 'particles.js'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.use(Element)
 Vue.use(VueRouter)
 Vue.use(particles)
 

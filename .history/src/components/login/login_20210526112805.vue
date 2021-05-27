@@ -41,7 +41,7 @@ import particlesJson from '@/assets/particles.json'
       z-index: 2;
       position: absolute;
       width: 380px;
-      border-radius: 2px;
+      border-radius: 5px;
       background: #fff;
       box-shadow: 0 0 5px #333;
       top: 50%;
