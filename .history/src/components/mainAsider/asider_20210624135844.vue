@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <el-drawer
+             title="我是标题"
+            :visible.sync="dr"
+             direction="ltr"
+            :with-header="false">
+            <span>我来啦!</span>
+        </el-drawer>
+    </div>
+</template>
