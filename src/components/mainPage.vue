@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <div id="particles">
+    <div id="mainpage_box">
       <el-header>
         <main-header></main-header>
       </el-header>
@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import particlesJson from "@/assets/particles.json";
 import mainHeader from "@/components/mainHeader/header";
 import mainAsider from "@/components/mainAsider/asider";
 export default {
@@ -19,9 +18,6 @@ export default {
   components: { mainHeader, mainAsider },
   data() {
     return {};
-  },
-  mounted() {
-    particlesJS("particles", particlesJson);
   },
 };
 </script>

@@ -5,6 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router//router'
 import store from './store/store'
+import './icons'
 import './assets/css/common.less'
 import particles from 'particles.js'
 
