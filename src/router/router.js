@@ -1,16 +1,16 @@
 import VueRouter from 'vue-router'
 
-const login = resolve => require(["@/components/login/login"],resolve);
-const mainPage = resolve =>require(["@/components/mainPage"],resolve);
+const homePage = resolve => require(["@/components/homePage"], resolve);
 
 const routers = [
-  { path: '/', redirect:'/login'},
-  { path:'/login', component:login},
-  { path:'/mainPage', component:mainPage}
+  { path: '/', redirect: '/homePage' },
+  {
+    path: '/homePage', name: 'homePage', component: homePage,
+  },
 ]
 
 const router = new VueRouter({
-   mode:'hash',
-   routes:routers
+  mode: 'hash',
+  routes: routers
 })
 export default router
