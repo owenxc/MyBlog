@@ -68,7 +68,7 @@ export default {
   display: flex;
   color: #fff;
   justify-content: space-between;
-  font-family: cursive;
+  font-family:inherit;
   .nav-title {
     font-size: 18px;
   }

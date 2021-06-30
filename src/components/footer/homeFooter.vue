@@ -1,6 +1,6 @@
 <template>
     <div class="footer_Box">
-       <div>{{`Copyright©${autoYear} by 辉腾博客`}} | <a href="http://beian.miit.gov.cn/" target="_blank">陕ICP备2021008231号</a></div>
+       <div>{{`Copyright © ${autoYear} by 辉腾博客`}} | <a href="http://beian.miit.gov.cn/" target="_blank">陕ICP备2021008231号</a></div>
     </div>
 </template>
 
