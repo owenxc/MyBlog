@@ -1,60 +1,72 @@
 <template>
   <div id="mainPage_box">
-    <el-button @click="getDataList">点我获取数据</el-button>
-    <el-button @click="initUser">TesT</el-button>
+    <el-button @click="initUser">生成数据</el-button>
+    </div>
   </div>
 </template>
 
 <script>
+import baseData from "@/components/constants.js";
 export default {
   name: "index",
   data() {
-    return {};
+    return {
+      imageList: baseData.Carousel,
+      testData:'',
+    };
   },
   methods: {
-    getDataList() {
-      const params = {
-        blogAuthor: "owen",
-        content: "djsdfsdf",
-        blogTitle: "test",
-        date: Date.now().toString(),
-      };
-      this.axios
-        .post("/manage/api/blog/insertblog", params)
-        .then((res) => {
-          console.log("获取数据成功", res);
-        })
-        .catch((err) => {
-          console.log("获取数据失败", err);
-        });
-    },
     initUser() {
       const params = {
-        userName: "admin",
+        userName: "owen",
         password: "5110822",
         role: "admin",
-        tel: "110",
+        tel: "15962614761",
         name: "owen",
-        nation: "中国",
+        nation: "中国-陕西-商洛",
         education: "东北大学",
       };
       this.axios
         .post("/manage/api/user/register", params)
         .then((res) => {
-          console.log("获取数据成功", res);
+          alert(res.data.data.msg)
         })
         .catch((err) => {
-          console.log("获取数据失败", err);
+          alert(err.data.data.msg)
         });
     },
   },
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 #mainPage_box {
   width: 100%;
-  height: 50vh;
+  height: 300vh;
   background-image: linear-gradient(to bottom, black, rgb(26, 11, 14));
+  .carousel{
+    width: 40%;
+    height: auto;
+    margin:0 auto;
+  }
+  .imgStyle{
+    width: inherit;
+    height: inherit;
+  }
+}
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 </style>
