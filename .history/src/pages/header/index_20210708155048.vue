@@ -1,0 +1,53 @@
+<template>
+     <div id="header_box">
+       <el-button icon="el-icon-s-unfold" class="menu-button" @click="showPanel"
+      >MENU</el-button>
+      <main-asider></main-asider>
+    </div>
+</template>
+
+<script>
+import particlesJson from "@/assets/particles.json";
+import mainAsider from "@/pages/asider/index"
+export default {
+  components:{mainAsider},
+  data() {
+    return {
+     
+    };
+  },
+  computed: {},
+  mounted() {
+    particlesJS("header_box", particlesJson);
+  },
+  methods: {
+     showPanel() {
+      this.$store.dispatch("actionChangeAsideDrawer", true);
+      console.log(this.$store.state.asideDrawer)
+     },
+  },
+};
+</script>
+
+<style lang="less" scoped>
+.menu-button{
+    position: fixed;
+    z-index: 1000;
+    margin: 1em;
+    padding: 0;
+    width: 100px;
+    height: 32px;
+    top: 6px;
+    left: 10px;
+    outline: 0;
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 3px;
+    font-size: 13px;
+    text-align: center;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.7;
+    }
+}
+</style>
