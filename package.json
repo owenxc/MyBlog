@@ -16,6 +16,8 @@
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "particles.js": "^2.0.0",
+    "mavon-editor": "^2.9.0",
+    "marked": "^1.2.6",
     "svg-sprite-loader": "^6.0.9",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

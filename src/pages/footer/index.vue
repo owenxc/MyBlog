@@ -22,7 +22,7 @@ export default {
 <style lang="less" scoped>
 .footer_Box{
     width: 100%;
-    height: 10vh;
+    height: 6vh;
     color:#fff;
     z-index: 99999;
     background-image: linear-gradient(to bottom right, rgb(6, 60, 82), rgb(26, 11, 14));

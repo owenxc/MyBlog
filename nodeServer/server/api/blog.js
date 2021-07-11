@@ -3,17 +3,20 @@ const express = require('express')
 const router = express.Router()
 const Blogs = require('../schemas/blogSchema') //博客库
 
-// 博客 POST请求
-// api/blog/insertblog
+//api/blog/insertblog
 router.post('/insertblog', (req, res) => {
     const NewBlog = new Blogs({
-        blogAuthor: req.body.blogAuthor,
+        author: req.body.author,
         content: req.body.content,
-        blogTitle:req.body.blogTitle,
-        date:req.body.date
+        articleTitle:req.body.articleTitle,
+        articleType:req.body.articleType,
+        releaseType:req.body.releaseType,
+        articleProfile:req.body.articleProfile,
+        tags:req.body.tags,
+        date:Date.now().toString(),
     })
     NewBlog.save()
-        .then((blog) => res.json({ data: { code: 200, msg: '新增成功', blog } }))
+        .then((blog) => res.json({ data: { code: 200, msg: '新增成功'} }))
         .catch(err => console.log(err))
 })
 
@@ -43,7 +46,6 @@ router.post('/getBlogs', (req, res) => {
     })
 })
 //api/blog/deleteBlogs
-
 router.post('/deleteBlogs', (req, res) => {
     Blogs.deleteOne({ _id: req.body.id})
       .then((com) => {

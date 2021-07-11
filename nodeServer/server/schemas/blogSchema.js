@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 // create schema
 const blogSchema = new Schema({
-  blogAuthor: {
+  author: {
     type: String,
     required: true
   },
@@ -12,13 +12,25 @@ const blogSchema = new Schema({
     type: String,
     required: true
   },
-  blogTitle:{
+  articleTitle:{
     type: String,
     required: true
   },
-  date:{
+  articleType:{
     type: String,
     required: true
+  },
+  releaseType:{
+    type: String,
+    required: true
+  },
+  articleProfile:{
+    type: String,
+    required: true
+  },
+  tags:[],
+  date:{
+     type: String,
   },
   
 })

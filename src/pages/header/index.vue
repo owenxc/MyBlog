@@ -12,7 +12,7 @@
         @select="handleSelect"
       >
         <el-menu-item index="/main"><svg-icon icon-class="home_page" />首页</el-menu-item>
-        <el-menu-item index="/blogManage"><svg-icon icon-class="demo" />博客管理</el-menu-item>
+        <el-menu-item index="/writeBlog"><svg-icon icon-class="demo" />博客管理</el-menu-item>
         <el-menu-item index="3"><svg-icon icon-class="message" />消息中心</el-menu-item>
       </el-menu>
     </ul>
@@ -57,13 +57,18 @@ export default {
   left: 10px;
   outline: 0;
   color: #fff !important;
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 3px;
   font-size: 13px;
   text-align: center;
   &:hover {
+    background: transparent;
     cursor: pointer;
     opacity: 0.7;
+  }
+  &:focus{
+    background: transparent;
   }
 }
 .header_nav {

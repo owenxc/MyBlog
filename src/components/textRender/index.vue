@@ -101,7 +101,7 @@ export default {
   width: 100%;
   color:white;
   .text_item{
-    height: 20vh;
+    min-height: 100px;
     background-image: linear-gradient(to right, skyblue, black);
     margin: 12px;
     border-radius: 3px;
