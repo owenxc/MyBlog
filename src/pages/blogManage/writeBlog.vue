@@ -76,9 +76,11 @@ export default {
   },
   created() {
     //编辑博客
-    // let data = this.$route.params.blogInfo || ''
-    // this.content = data.content || '';
-    // this.articleTitle = data.articleTitle || '';
+    let data = this.$route.params || ''
+    // console.log('luy',data)
+    this.content = data.content || '';
+    this.articleTitle = data.articleTitle || '';
+    this.itemInfo = data
   },
   methods: {
     showDialog(type){//显示弹窗
@@ -86,12 +88,9 @@ export default {
       this.itemInfo.content = this.content;
       this.itemInfo.articleTitle = this.articleTitle;
     },
-    handleClose(toggle){
+    handleClose(){
       this.panelShow = false;
       this.itemInfo = {}
-      // if(toggle){
-      //   this.$router.push({path:'/articleManage'}) 
-      // }
     },
   },
 };

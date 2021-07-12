@@ -60,6 +60,7 @@
         <el-radio-group v-model="form.releaseType">
           <el-radio label="public">公开</el-radio>
           <el-radio label="private">私密</el-radio>
+          <el-radio label="draft">草稿</el-radio>
         </el-radio-group>
       </el-form-item>
     </el-form>
@@ -76,11 +77,11 @@ export default {
   data() {
     return {
       form: {
-        articleType: "",
-        releaseType: "public",
-        articleProfile: "",
+        articleType:this.itemInfo.articleType || "",
+        releaseType: this.itemInfo.releaseType || "public",
+        articleProfile: this.itemInfo.articleProfile || "",
       },
-      articleTags: ["test"],
+      articleTags:this.itemInfo.tags || [],
       inputVisible: false,
       inputValue: "",
       articleTypeList: [
@@ -91,10 +92,6 @@ export default {
         {
           label: "转载",
           value: "reprinted",
-        },
-        {
-          label: "草稿",
-          value: "draft",
         },
       ],
     };
@@ -117,13 +114,13 @@ export default {
       this.inputVisible = false;
       this.inputValue = "";
     },
-    handleClose(toggle) {
-      this.$emit("handleClose",toggle);
+    handleClose() {
+      this.$emit("handleClose");
     },
     saveInfo() {
       //保存提交文章
       let params = {
-         author:'owen',
+         author:this.$store.state.userInfo.name,
          content:this.itemInfo.content,
          articleTitle:this.itemInfo.articleTitle,
          articleType:this.form.articleType,
