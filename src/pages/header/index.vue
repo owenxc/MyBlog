@@ -36,7 +36,6 @@ export default {
   methods: {
     showPanel() {
       this.$store.dispatch("actionChangeAsideDrawer", true);
-      console.log(this.$store.state.asideDrawer);
     },
     handleSelect(keyPath) {
       this.$router.push({path:keyPath})

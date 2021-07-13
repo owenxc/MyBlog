@@ -77,7 +77,6 @@ export default {
   created() {
     //编辑博客
     let data = this.$route.params || ''
-    // console.log('luy',data)
     this.content = data.content || '';
     this.articleTitle = data.articleTitle || '';
     this.itemInfo = data

@@ -5,12 +5,14 @@ const main = resolve => require(["@/pages/main/index"], resolve);
 const blogManage = resolve => require(["@/pages/blogManage"], resolve);
 const writeBlog = resolve => require(["@/pages/blogManage/writeBlog"], resolve);
 const articleManage = resolve => require(["@/pages/blogManage/articleManage"], resolve);
+const articleShow = resolve => require(["@/pages/articleShow/index"],resolve)
 const routers = [
   { path: '/', redirect: '/main' },
   {
     path: '/mainPage', name: 'mainPage', component: mainPage,
     children: [
-      { path: '/main',name:'main', component: main }
+      { path: '/main',name:'main', component: main },
+      { path:'/articleShow',name:'articleShow',component:articleShow}
     ]
   },
   {

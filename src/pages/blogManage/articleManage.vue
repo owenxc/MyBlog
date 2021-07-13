@@ -28,7 +28,7 @@
                   <span>评论(0)</span>
                 </div>
                 <div>
-                  <el-link icon="el-icon-view">浏览</el-link>
+                  <el-link icon="el-icon-view" @click="viewArticle(article)">浏览</el-link>
                   <el-link class="ml-10" icon="el-icon-edit" @click="editArticle(article)">编辑</el-link>
                   <el-popconfirm title="确定要删除该文章吗 ?">
                     <el-link class="ml-10" slot="reference" icon="el-icon-delete"
@@ -78,7 +78,6 @@ export default {
   },
   created() {
     this.queryArticleData();
-    // console.log(this.$route)
   },
   methods: {
     queryArticleData() {
@@ -126,6 +125,9 @@ export default {
     },
     editArticle(data){
       this.$router.push({name:'writeBlog',params:data})
+    },
+    viewArticle(data){
+      this.$router.push({name:'articleShow',params:data})
     }
   },
 };

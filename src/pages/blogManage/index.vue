@@ -62,7 +62,6 @@ export default {
   watch:{
     $route:{
       handler(val,oldval){
-        console.log(val)
         this.active = val.path
       },
       deep: true

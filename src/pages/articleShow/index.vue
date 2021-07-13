@@ -1,0 +1,26 @@
+<template>
+  <div class="articleShow_box">
+        <show-down :itemInfo="itemInfo"></show-down>
+    </div>
+</template>
+<script>
+import showDown from "@/components/showDown/index";
+export default {
+  components: { showDown },
+  data() {
+    return {
+      itemInfo: "",
+    };
+  },
+  created() {
+    this.itemInfo = this.$route.params;
+  },
+  methods: {},
+};
+</script>
+<style lang="less" scoped>
+.articleShow_box {
+  width: 100%;
+  height: 100%;
+}
+</style>
