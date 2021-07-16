@@ -1,6 +1,8 @@
 <template>
-  <div class="articleShow_box">
-        <show-down :itemInfo="itemInfo"></show-down>
+    <div class="articleShow_box">
+        <div>
+          <show-down :itemInfo="itemInfo"></show-down>
+        </div>
     </div>
 </template>
 <script>
@@ -13,7 +15,7 @@ export default {
     };
   },
   created() {
-    this.itemInfo = this.$route.params;
+    this.itemInfo = this.$route.query;
   },
   methods: {},
 };
@@ -22,5 +24,7 @@ export default {
 .articleShow_box {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

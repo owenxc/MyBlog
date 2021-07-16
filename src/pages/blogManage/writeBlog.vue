@@ -76,7 +76,7 @@ export default {
   },
   created() {
     //编辑博客
-    let data = this.$route.params || ''
+    let data = this.$route.query || ''
     this.content = data.content || '';
     this.articleTitle = data.articleTitle || '';
     this.itemInfo = data

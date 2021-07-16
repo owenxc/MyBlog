@@ -30,7 +30,7 @@
                 <div>
                   <el-link icon="el-icon-view" @click="viewArticle(article)">浏览</el-link>
                   <el-link class="ml-10" icon="el-icon-edit" @click="editArticle(article)">编辑</el-link>
-                  <el-popconfirm title="确定要删除该文章吗 ?">
+                  <el-popconfirm title="确定要删除该文章吗 ?" @confirm="deleteArticle(article)">
                     <el-link class="ml-10" slot="reference" icon="el-icon-delete"
                       >删除</el-link
                     >
@@ -80,6 +80,7 @@ export default {
     this.queryArticleData();
   },
   methods: {
+    //查询文章数据
     queryArticleData() {
       let params = {
         currentPage: 1,
@@ -90,6 +91,11 @@ export default {
         this.articleList = res.data.data.blog || [];
         this.total = res.data.data.totalCount || 0;
       });
+    },
+    deleteArticle(data){
+         this.axios.post("/manage/api/blog/deleteBlogs",{id:data._id}).then(res=>{
+           this.queryArticleData()
+         })
     },
     formatDate(value) {
       if (typeof value == "undefined") {
@@ -123,11 +129,13 @@ export default {
         return 0
       }
     },
+    //跳转到文章编辑界面
     editArticle(data){
-      this.$router.push({name:'writeBlog',params:data})
+      this.$router.push({name:'writeBlog',query:data})
     },
+    //跳转到文章阅读界面
     viewArticle(data){
-      this.$router.push({name:'articleShow',params:data})
+      this.$router.push({name:'articleShow',query:data})
     }
   },
 };

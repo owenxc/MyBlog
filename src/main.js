@@ -18,6 +18,14 @@ Vue.use(VueRouter)
 Vue.use(particles)
 Vue.use(mavonEditor)
 Vue.prototype.axios = axios
+
+//导航守卫
+router.beforeEach((to,from,next)=>{
+  return next()
+})
+
+
+
 new Vue({
   el: '#app',
   router,
