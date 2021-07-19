@@ -1,9 +1,6 @@
 <template>
   <div id="blog_header_box">
     <span class="title">辉腾博客</span>
-    <span class="user">
-      <el-avatar>admin</el-avatar>
-    </span>
   </div>
 </template>
 
@@ -27,17 +24,10 @@ export default {
 <style lang="less" scoped>
 .title{
   position: absolute;
-  top:3vh;
+  top:15px;
   left:20px;
   font-size:20px;
   font-weight: bold;
   text-shadow: 5px 5px 5px yellow
-}
-.user{
-  position: absolute;
-  top:2vh;
-  right:20px;
-  font-size: 20px; 
-  cursor: pointer;
 }
 </style>

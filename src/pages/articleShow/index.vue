@@ -23,7 +23,7 @@ export default {
 <style lang="less" scoped>
 .articleShow_box {
   width: 100%;
-  height: 100%;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
 }

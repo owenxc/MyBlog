@@ -1,9 +1,9 @@
 <template>
-  <el-container class="blog_container">
+  <el-container id="main">
     <el-header>
       <blog-header></blog-header>
     </el-header>
-    <el-container>
+    <el-container class="container">
       <el-aside id="blog_aside_box" width="160px" class="blog_aside">
         <el-menu
           :default-active="active"
@@ -73,16 +73,13 @@ export default {
 <style lang="less">
 .blog_aside {
   background-color: #000;
-  position: relative;
   .el-menu {
-    position:absolute;
     border-right: 0;
-    top:0;
-    left:0;
     .el-menu-item {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      background-color: transparent !important;
       svg {
         margin-right: 20px;
       }

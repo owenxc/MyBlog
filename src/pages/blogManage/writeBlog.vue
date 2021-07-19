@@ -1,6 +1,6 @@
 <template>
   <div class="write_blog_box">
-    <div class="flex_Box m-10">
+    <div class="flex_Box">
       <el-input
         type="text"
         placeholder="请输入文章标题(5~100个字)"
@@ -98,7 +98,7 @@ export default {
 .flex_Box {
   display: flex;
   justify-content: flex-start;
-  padding:10px;
+  margin-bottom: 20px;
   .el-input {
     width: 40%;
   }
@@ -124,14 +124,21 @@ export default {
   }
 }
 .write_blog_box {
-  height: 90vh;
+  height: 100%;
   overflow: hidden;
-  background: #d6dee6;
   color: #333;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  background-image: url('../../assets//image/home_top_bg.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // .v-note-wrapper.shadow{
+  //   border: 1px solid #c6c6c6;
+  // }
   .v-note-wrapper {
-    flex: 1;
+    // flex: 0.85;
     height: 100%;
     border-radius: 0;
   }

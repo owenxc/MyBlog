@@ -57,9 +57,10 @@ i {
 }
 //布局样式
 .el-container{
+  height: 100%;
+  overflow: hidden;
   padding: 0;
   margin: 0;
-  width: 100%;
 }
 .el-header{
   height:auto !important;
@@ -67,14 +68,13 @@ i {
   margin: 0;
 }
 .el-main{
-  // height: auto !important;
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
   padding: 0;
   margin: 0;
 }
 .el-footer{
-  height: auto !important;
+  height:auto !important;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -84,5 +84,18 @@ i {
   }
   .el-tag{
     margin-left: 5px;
+  }
+}
+
+#mian{
+  width: 100%;
+  position: relative;
+  font-size: 14px;
+  .container{
+      width: 100%;
+      .el-aside{
+          width: auto !important;
+          overflow: auto;
+      }
   }
 }
