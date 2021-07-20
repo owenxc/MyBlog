@@ -1,15 +1,9 @@
 <template>
-    <el-container>
-      <el-header>
-        <main-header></main-header>
-      </el-header>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-      <el-footer>
-        <main-footer></main-footer>
-      </el-footer>
-    </el-container>
+  <div>
+    <main-header></main-header>
+    <router-view></router-view>
+    <main-footer></main-footer>
+  </div>
 </template>
 
 <script>
@@ -17,7 +11,7 @@ import mainHeader from "@/pages/header/index";
 import mainFooter from "@/pages/footer/index";
 export default {
   name: "mainPage",
-  components: { mainHeader, mainFooter},
+  components: { mainHeader, mainFooter },
   data() {
     return {};
   },

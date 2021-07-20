@@ -28,15 +28,9 @@ export default {
 <style lang="less">
 #mainPage_box {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  // min-height: 100;
-  background-image: linear-gradient(
-    45deg,
-    rgba(165, 97, 30, 0.5),
-    rgba(199, 121, 208, 0.5),
-    rgba(75, 192, 200, 0.5)
-  );
+  height: auto;
+  min-height: 100vh;
+  background: #fff;
   display: flex;
   .aside_left{
     width: 30%;

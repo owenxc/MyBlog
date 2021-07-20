@@ -1,21 +1,33 @@
 <template>
   <div id="header_box">
-    <el-button icon="el-icon-s-unfold" class="menu-button" @click="showPanel"
-      >MENU</el-button
-    >
-    <main-asider></main-asider>
-    <ul class="header_nav">
-      <el-menu
-        :default-active="activeIndex"
-        class="el-menu-demo"
-        mode="horizontal"
-        @select="handleSelect"
+    <div :class="navStyle">
+      <el-button
+        icon="el-icon-s-unfold"
+        size="small"
+        class="menu-button"
+        @click="showPanel"
+        >MENU</el-button
       >
-        <el-menu-item index="/main"><svg-icon icon-class="home_page" />首页</el-menu-item>
-        <el-menu-item index="/writeBlog"><svg-icon icon-class="demo" />博客管理</el-menu-item>
-        <el-menu-item index="3"><svg-icon icon-class="message" />消息中心</el-menu-item>
-      </el-menu>
-    </ul>
+      <ul class="header_nav">
+        <el-menu
+          :default-active="activeIndex"
+          class="el-menu-demo"
+          mode="horizontal"
+          @select="handleSelect"
+        >
+          <el-menu-item index="/main"
+            ><svg-icon icon-class="home_page" />首页</el-menu-item
+          >
+          <el-menu-item index="/writeBlog"
+            ><svg-icon icon-class="demo" />博客管理</el-menu-item
+          >
+          <el-menu-item index="3"
+            ><svg-icon icon-class="message" />消息中心</el-menu-item
+          >
+        </el-menu>
+      </ul>
+    </div>
+    <main-asider></main-asider>
   </div>
 </template>
 
@@ -27,80 +39,112 @@ export default {
   data() {
     return {
       activeIndex: "/main",
+      styleClass:['navbar']
     };
   },
-  computed: {},
+  computed: {
+     navStyle(){
+       return this.styleClass
+     }
+  },
   mounted() {
     particlesJS("header_box", particlesJson);
+    window.addEventListener("scroll",this.handleScroll)
   },
   methods: {
     showPanel() {
       this.$store.dispatch("actionChangeAsideDrawer", true);
     },
     handleSelect(keyPath) {
-      this.$router.push({path:keyPath})
+      this.$router.push({ path: keyPath });
     },
+    handleScroll(){
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if(scrollTop > 240){
+        this.styleClass = ['navbar','scroll']
+      }else{
+        this.styleClass = ['navbar']
+      }
+    }
   },
 };
 </script>
-
 <style lang="less">
-.menu-button {
-  position: absolute;
-  z-index: 1000;
-  margin: 1em;
-  padding: 0;
-  width: 100px;
-  height: 32px;
-  top: 6px;
-  left: 10px;
-  outline: 0;
-  color: #fff !important;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 3px;
-  font-size: 13px;
-  text-align: center;
-  &:hover {
-    background: transparent;
-    cursor: pointer;
-    opacity: 0.7;
-  }
-  &:focus{
-    background: transparent;
-  }
-}
-.header_nav {
-  color: #fff;
-  position: absolute;
-  z-index: 1000;
-  top: 6px;
-  right: 10px;
-  .el-menu {
-    background-color: transparent;
-  }
-  .el-menu.el-menu--horizontal {
-    border-bottom: 0px;
-    .el-menu-item {
-      color: #fff;
-      font-size: 16px;
-      padding: 0px;
-      margin: 0 15px;
-      height: 40px;
-      line-height: 40px;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:10;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    color: #fff;
+    background-color:transparent;
+    border-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.4s;
+    opacity: 1;
+    .menu-button {
+      height: 32px;
+      outline: 0;
+      color: inherit;
+      background-color: inherit;
+      border-width: 1px;
+      border-style: solid;
+      border-color: inherit;
+      border-radius: 3px;
+      font-size: 13px;
+      text-align: center;
       &:hover {
-        background-color: transparent;
-        color: red;
+        background: transparent;
+        cursor: pointer;
+        opacity: 0.7;
       }
       &:focus {
-        background-color: transparent;
-        color: red;
+        background: transparent;
       }
     }
-    .is-active {
-      font-weight: bold;
+    .header_nav {
+      .el-menu {
+        background-color: inherit;
+      }
+      .el-menu.el-menu--horizontal {
+        border-bottom: 0px;
+        .el-menu-item {
+          color:inherit;
+          font-size: 16px;
+          padding: 0px;
+          margin: 0 15px;
+          height: 40px;
+          line-height: 40px;
+          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+          &:hover {
+            background-color: transparent;
+            color: red;
+          }
+          &:focus {
+            background-color: transparent;
+            color: red;
+          }
+        }
+        .is-active {
+          font-weight: bold;
+        }
+      }
     }
-  }
+}
+.scroll{
+    // color:blue;
+    background-image: linear-gradient(to  bottom, #3f3333, #55666c);
+    // height: 64px;
+    // border-color:blue;
+    color:#fff;
+    // background: #333;
+    height: 64px;
+    border-color:#fff;
+    transition: all 0.4s;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.08);
 }
 </style>

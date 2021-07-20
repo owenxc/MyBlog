@@ -15,7 +15,7 @@
 export default {
     data(){
         return {
-
+         
         }
     },
     computed:{
@@ -26,7 +26,7 @@ export default {
     methods:{
         closeDrawer(){
            this.$store.dispatch('actionChangeAsideDrawer',false)
-        }
+        },
     }
 }
 </script>
