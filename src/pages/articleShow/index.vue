@@ -14,10 +14,14 @@ export default {
       itemInfo: "",
     };
   },
+  mounted(){
+  },
   created() {
     this.itemInfo = this.$route.query;
   },
-  methods: {},
+  methods: {
+
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -26,21 +30,17 @@ export default {
   min-height: 70vh;
   display: flex;
   justify-content: center;
-  background: rgba(219, 215 ,207, 60%);
   .content_box {
-    width: 70%;
+    width: 60%;
+    color: #333;
     background: #fff;
     box-sizing: content-box;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  #content{
-    pre{
-      background-color: #333;
-      color:#fff
+    padding: 2%;
+    border-radius: 2px;
+    box-shadow: 0 3px 8px 6px rgba(7,17,27,0.06);
+    &:hover{
+      box-shadow: 0 3px 8px 6px rgba(7,17,27,0.15);
     }
   }
-
 }
 </style>

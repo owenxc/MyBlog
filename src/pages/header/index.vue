@@ -21,9 +21,9 @@
           <el-menu-item index="/writeBlog"
             ><svg-icon icon-class="demo" />博客管理</el-menu-item
           >
-          <el-menu-item index="3"
+          <!-- <el-menu-item index="3"
             ><svg-icon icon-class="message" />消息中心</el-menu-item
-          >
+          > -->
         </el-menu>
       </ul>
     </div>
@@ -136,12 +136,8 @@ export default {
     }
 }
 .scroll{
-    // color:blue;
-    background-image: linear-gradient(to  bottom, #3f3333, #55666c);
-    // height: 64px;
-    // border-color:blue;
+    background-image: linear-gradient(to bottom right, #063c52, #1a0b0e);
     color:#fff;
-    // background: #333;
     height: 64px;
     border-color:#fff;
     transition: all 0.4s;

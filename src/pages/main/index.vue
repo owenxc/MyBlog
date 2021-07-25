@@ -1,13 +1,7 @@
 <template>
   <div id="mainPage_box">
-    <div class="aside_left">
-      <user-info></user-info>
-    </div>
     <div class="articles">
       <text-render></text-render>
-    </div>
-    <div class="aside_right">
-
     </div>
   </div>
 </template>
@@ -32,14 +26,5 @@ export default {
   min-height: 100vh;
   background: #fff;
   display: flex;
-  .aside_left{
-    width: 30%;
-  }
-  .articles {
-    width: 60%;
-  }
-  .aside_right{
-    flex:0.3;
-  }
 }
 </style>

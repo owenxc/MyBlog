@@ -8,7 +8,7 @@ const port = process.env.PORT || 80
 app.listen(port, () => {
     console.log(`server running on ${port}`)
 })
-mongoose.connect('mongodb://127.0.0.1:27017/community', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://120.78.130.32:27017/community', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Mongodb Connected'))
     .catch(err => console.log(err))
 
