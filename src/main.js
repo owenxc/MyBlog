@@ -21,7 +21,8 @@ Vue.prototype.axios = axios
 
 //导航守卫
 router.beforeEach((to,from,next)=>{
-  return next()
+  localStorage.setItem('routerParams',JSON.stringify(to.params))
+  next()
 })
 
 

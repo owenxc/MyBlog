@@ -13,11 +13,14 @@ export default {
   name: "mainPage",
   components: { mainHeader, mainFooter },
   data() {
-    return {};
+    return {
+    };
   },
   computed: {},
-  mounted() {},
-  methods: {},
+  mounted() {
+  },
+  methods: {
+  },
 };
 </script>
 

@@ -30,10 +30,30 @@ export default {
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
-    overflow-x:scroll;
+    overflow-x: scroll;
   }
-  ul>li,h1,h2,h3,h4,h5{
+  ul {
+    li{
+      width: 100%;
+      padding: 5px;
+      color:rgb(76,73,72);
+    }
+    li:before{
+      content:"\27A4   ";
+      color:rgb(93, 109, 204);
+    }
+  }
+  ul > h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     width: 100%;
+    transition: padding-left 0.5s;
+    &:hover {
+      cursor: pointer;
+      padding-left: 20px;
+    }
   }
 }
 </style>

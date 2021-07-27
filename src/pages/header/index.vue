@@ -27,6 +27,7 @@
         </el-menu>
       </ul>
     </div>
+    <span class="curArticle">永远相信明天更好.....</span>
     <main-asider></main-asider>
   </div>
 </template>
@@ -142,5 +143,13 @@ export default {
     border-color:#fff;
     transition: all 0.4s;
     box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.08);
+}
+.curArticle{
+  color:#fff;
+  font-size: 38px;
+  position:relative;
+  top:30%;
+  left:50%;
+  margin-left: -10%;
 }
 </style>
