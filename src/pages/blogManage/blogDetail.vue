@@ -128,7 +128,11 @@ export default {
          articleProfile:this.form.articleProfile,
          tags:this.articleTags
       };
-      this.axios.post("/manage/api/blog/insertblog",params).then(res=>{
+      this.axios({
+        method:'post',
+        url:'/manage/api/blog/insertblog',
+        data:params
+      }).then(res=>{
         this.$message.success("发布成功")
         this.$router.push({path:'/articleManage'})
       }).catch(err=>{

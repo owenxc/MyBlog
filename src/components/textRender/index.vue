@@ -99,16 +99,12 @@ export default {
 <style lang="less" scoped>
 .text_box{
   width: 100%;
-  color:white;
   .text_item{
     min-height: 100px;
-    background-image: linear-gradient(to right, skyblue, black);
-    margin: 12px;
-    border-radius: 3px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    box-sizing: border-box;
-    padding:20px;
+    margin:20px;
+    padding-bottom: 20px;
     display: flex;
+    border-bottom: 1px dashed  gray;
     flex-direction: column;
     justify-content: space-between;
     &:hover{

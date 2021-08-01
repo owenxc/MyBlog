@@ -55,7 +55,7 @@ export default {
 <style lang="less" scoped>
 .articleShow_box {
   width: 100%;
-  min-height: 70vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   .content_box {
@@ -79,7 +79,6 @@ export default {
   color: skyblue;
   font-weight: bolder;
   line-height: 40px;
-  // border-radius: 20px;
   background: #fff;
   position: fixed;
   right: 0.2%;
