@@ -5,7 +5,8 @@ const main = resolve => require(["@/pages/main/index"], resolve);
 const blogManage = resolve => require(["@/pages/blogManage"], resolve);
 const writeBlog = resolve => require(["@/pages/blogManage/writeBlog"], resolve);
 const articleManage = resolve => require(["@/pages/blogManage/articleManage"], resolve);
-const articleShow = resolve => require(["@/pages/articleShow/index"],resolve)
+const articleShow = resolve => require(["@/pages/articleShow/index"],resolve);
+const login = resolve => require(["@/login"],resolve)
 const routers = [
   { path: '/', redirect: '/main' },
   {
@@ -21,6 +22,9 @@ const routers = [
       { path: '/writeBlog',name:'writeBlog', component: writeBlog },
       { path: '/articleManage',name:'articleManage', component: articleManage },
     ]
+  },
+  {
+    path:'/login',name:'login',component:login
   }
 ]
 

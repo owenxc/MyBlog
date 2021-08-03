@@ -11,6 +11,7 @@ import './assets/css/common.less'
 import 'mavon-editor/dist/css/index.css'
 import particles from 'particles.js'
 import axios from 'axios'
+import particlesJson from "@/assets/particles.json";
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -18,6 +19,9 @@ Vue.use(VueRouter)
 Vue.use(particles)
 Vue.use(mavonEditor)
 Vue.prototype.axios = axios
+Vue.prototype.$particlesJS = function(className){
+  return particlesJS(className, particlesJson);
+}
 
 //导航守卫
 router.beforeEach((to,from,next)=>{
