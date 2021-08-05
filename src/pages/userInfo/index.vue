@@ -1,10 +1,8 @@
 <template>
-  <div class="asideBox">
-    <el-carousel indicator-position="none" arrow="never" :autoplay="false">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3>{{ item }}</h3>
-      </el-carousel-item>
-    </el-carousel>
+  <div class="userInfo_box">
+      <div class="photo">
+        <img src="../../assets/image/author.jpg" alt="#">
+      </div>
   </div>
 </template>
 
@@ -16,28 +14,31 @@ export default {
 };
 </script>
 
-<style lang="less">
-.asideBox{
-    transform: rotate(-90deg);
-    .el-carousel{
-        width: 300px;
-        border-radius: 20px;
-        left:67px;
+<style lang="less" scoped>
+.userInfo_box{
+  width: 100%;
+  min-height: 300px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .photo{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border:2px dotted blue;
+    border-radius: 52px;
+    margin: 20px 0;
+    img{
+      width: 100%;
+      height: 100%;
     }
+    &:hover{
+      cursor: pointer;
+      transition:2s linear;
+      transform:rotate(-360deg);
+    }
+  }
 }
- .el-carousel__item h3 {
-    color: #475669;
-    font-size: 18px;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
 </style>

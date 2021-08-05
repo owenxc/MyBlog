@@ -4,7 +4,7 @@
       <text-render></text-render>
     </div>
     <div class="aside_box">
-      
+       <userInfo></userInfo>
     </div>
   </div>
 </template>
@@ -31,13 +31,13 @@ export default {
   display: flex;
   justify-content: center;
   .aside_box{
-    width: 350px;
-    background: #fff;
+    width: 300px;
+    background: transparent;
     margin:20px 0px 20px 10px;
-    border-radius: 8px;
+    // border-radius: 8px;
   }
   .articles{
-    width: 900px;
+    width: 800px;
     background: #fff;
     margin: 20px 0px;
     border-radius: 8px;
