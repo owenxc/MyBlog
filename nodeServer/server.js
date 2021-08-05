@@ -27,7 +27,10 @@ app.use(bodyParse.urlencoded({ extended: true }));
 app.use(bodyParse.json());
 
 
-// 创建api
-//引入blog.js并使用接口
-const blogs = require('./server/api/blog')
-app.use('/api/blog', blogs)
+/**
+ * 创建api
+*/
+//引入blog.js相关接口
+app.use('/api/blog', require('./server/api/blog'))
+//引入auth.js相关接口
+app.use('/api/auth', require('./server/api/auth'))

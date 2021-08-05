@@ -34,6 +34,5 @@ const blogSchema = new Schema({
   },
   
 })
-
 let blogModel = mongoose.model('blog', blogSchema)
 module.exports = blogModel

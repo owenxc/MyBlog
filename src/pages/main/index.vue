@@ -1,10 +1,10 @@
 <template>
   <div id="mainPage_box">
-    <div class="aside_box">
-      
-    </div>
     <div class="articles">
       <text-render></text-render>
+    </div>
+    <div class="aside_box">
+      
     </div>
   </div>
 </template>
@@ -31,14 +31,16 @@ export default {
   display: flex;
   justify-content: center;
   .aside_box{
-    width: 400px;
+    width: 350px;
     background: #fff;
-    margin: 20px 10px 20px 20px;
+    margin:20px 0px 20px 10px;
+    border-radius: 8px;
   }
   .articles{
-    width: 1000px;
+    width: 900px;
     background: #fff;
-    margin: 20px 20px 20px 10px;
+    margin: 20px 0px;
+    border-radius: 8px;
   }
 }
 </style>

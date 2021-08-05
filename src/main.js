@@ -12,13 +12,14 @@ import 'mavon-editor/dist/css/index.css'
 import particles from 'particles.js'
 import axios from 'axios'
 import particlesJson from "@/assets/particles.json";
-
+import request from "@/common/request.js"
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(particles)
 Vue.use(mavonEditor)
 Vue.prototype.axios = axios
+Vue.prototype.request = request
 Vue.prototype.$particlesJS = function(className){
   return particlesJS(className, particlesJson);
 }
