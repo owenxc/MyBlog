@@ -31,16 +31,20 @@ export default {
   display: flex;
   justify-content: center;
   .aside_box{
-    width: 300px;
+    width: 360px;
     background: transparent;
-    margin:20px 0px 20px 10px;
-    // border-radius: 8px;
+    margin:20px 0px 20px 20px;
   }
   .articles{
-    width: 800px;
+    width: 1000px;
     background: #fff;
     margin: 20px 0px;
     border-radius: 8px;
+    cursor: pointer;
+    &:hover{
+      box-shadow: 0 3px 8px 6px rgba(7,17,27,0.15);
+      transition: all 0.5s;
+    }
   }
 }
 </style>
