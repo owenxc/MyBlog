@@ -31,12 +31,14 @@ export default {
   display: flex;
   justify-content: center;
   .aside_box{
-    width: 360px;
+    width: 300px;
+    max-width: 360px;
     background: transparent;
     margin:20px 0px 20px 20px;
   }
   .articles{
-    width: 1000px;
+    width: 900px;
+    max-width: 1000px;
     background: #fff;
     margin: 20px 0px;
     border-radius: 8px;

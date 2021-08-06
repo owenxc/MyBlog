@@ -11,7 +11,7 @@ import './assets/css/common.less'
 import 'mavon-editor/dist/css/index.css'
 import particles from 'particles.js'
 import axios from 'axios'
-import particlesJson from "@/assets/particles.json";
+import {Particles_Data} from "@/assets/js/particlesData.js"
 import request from "@/common/request.js"
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -21,7 +21,7 @@ Vue.use(mavonEditor)
 Vue.prototype.axios = axios
 Vue.prototype.request = request
 Vue.prototype.$particlesJS = function(className){
-  return particlesJS(className, particlesJson);
+  return particlesJS(className, Particles_Data[Math.floor((Math.random()*Particles_Data.length))]);
 }
 
 //导航守卫

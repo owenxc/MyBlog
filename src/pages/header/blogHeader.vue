@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import particlesJson from "@/assets/particles.json";
 export default {
   data() {
     return {
@@ -13,7 +12,7 @@ export default {
     };
   },
   mounted() {
-    particlesJS("blog_header_box", particlesJson);
+    this.$particlesJS("blog_header_box");
   },
   methods: {
   

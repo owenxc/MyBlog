@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import particlesJson from "@/assets/particles.json";
 import blogHeader from "@/pages/header/blogHeader";
 export default {
   components: { blogHeader},
@@ -52,7 +51,7 @@ export default {
   },
 
   mounted() {
-    particlesJS("blog_aside_box", particlesJson);
+    this.$particlesJS("blog_aside_box");
   },
   methods: {
       handleSelect(keyPath) {
