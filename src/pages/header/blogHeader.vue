@@ -1,6 +1,6 @@
 <template>
   <div id="blog_header_box">
-    <span class="title">辉腾博客</span>
+    <span class="title">辉腾博客-创作中心</span>
   </div>
 </template>
 

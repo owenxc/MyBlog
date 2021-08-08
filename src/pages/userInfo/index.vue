@@ -1,5 +1,5 @@
 <template>
-  <div class="userInfo_box">
+  <div class="asider_base_Container userInfo_box">
     <div class="photo img-rotate-z">
       <img src="../../assets/image/author.jpg" alt="#" />
     </div>
@@ -35,18 +35,9 @@ export default {
 
 <style lang="less" scoped>
 .userInfo_box {
-  width: 100%;
-  min-height: 320px;
-  background: #fff;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
-    transition: all 0.5s;
-  }
   .photo {
     width: 90px;
     height: 90px;
@@ -85,6 +76,7 @@ export default {
     background: #49b1f5;
     width: 80%;
     text-align: center;
+    margin-bottom: 20px;
   }
   .btn2 {
     position: relative;

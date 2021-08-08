@@ -5,6 +5,7 @@
     </div>
     <div class="aside_box">
        <userInfo></userInfo>
+       <watch></watch>
     </div>
   </div>
 </template>
@@ -12,9 +13,10 @@
 <script>
 import textRender from "@/components/textRender/index";
 import userInfo from "@/pages/userInfo/index";
+import watch from "@/pages/watch"
 export default {
   name: "index",
-  components: { textRender, userInfo },
+  components: { textRender, userInfo,watch },
   data() {
     return {};
   },
