@@ -21,7 +21,7 @@
           <el-menu-item index="/writeBlog"
             ><svg-icon icon-class="demo" /> 博客管理</el-menu-item
           >
-          <el-menu-item index="3"
+          <el-menu-item index="/library"
             ><svg-icon icon-class="message" /> 资料中心</el-menu-item
           >
         </el-menu>
