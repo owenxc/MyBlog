@@ -10,6 +10,11 @@ module.exports = {
         target: "http://localhost:80",
         changeOrigin: true,
         pathRewrite: { "^/manage": "" }
+      },
+      "/weather":{
+        target:"http://apis.juhe.cn",
+        changeOrigin: true,
+        pathRewrite: { "^/weather": "" }
       }
     },
     host: "localhost",

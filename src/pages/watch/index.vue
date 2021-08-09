@@ -37,6 +37,10 @@
     <div class="jun-calendar-date">
       <span>{{ `农历${timeInfo.calendar}` }}</span>
     </div>
+    <div class="weather">
+       <div><svg-icon :icon-class="`weather_${weatherInfo.wid}`"></svg-icon></div>
+       <div><span>{{`${weatherInfo.info} ${weatherInfo.temperature} 度`}}</span></div>
+    </div>
   </div>
 </template>
 
@@ -48,10 +52,11 @@ export default {
       elem: {},
       dates: [],
       timeInfo: {
-        dateNow: [8,8,'星期一'],
+        dateNow: [8, 8, "星期一"],
         calendar: "七月初七",
       },
       humanGif: require("../../assets/image/human.gif"),
+      weatherInfo:{info:'晴',temperature:30,wid:'01'},
     };
   },
   created() {
@@ -59,6 +64,7 @@ export default {
   },
   mounted() {
     this.updateTime();
+    this.getLocationWeather();
   },
   methods: {
     updateTime() {
@@ -68,12 +74,17 @@ export default {
         _this.dates = dateData.getTime();
         _this.timeInfo.calendar = dateData.getCalendarDate();
         _this.timeInfo.dateNow = dateData.getDate();
-        console.log(
-          dateData.getDate(),
-          dateData.getCalendarDate(),
-          dateData.getTime()
-        );
       }, 1000);
+    },
+    //获取当前位置
+    //获取天气
+    getLocationWeather() {
+      this.axios({
+        method: "GET",
+        url: "/weather/simpleWeather/query?city=深圳&key=6e205ef9a3daf12b5a0492e870b1706d",
+      }).then((res) => {
+        this.weatherInfo = res.data.result.realtime 
+      });
     },
   },
 };
@@ -93,7 +104,7 @@ export default {
   display: flex;
   margin: 10px 0;
   position: absolute;
-  bottom: 0px;
+  bottom: 20px;
   .rect {
     width: 30px;
     height: 50px;
@@ -139,15 +150,25 @@ export default {
 .jun-date {
   display: inline-block;
   position: absolute;
-  top: 70px;
-  right: 10px;
-  font-family: cursive,serif,sans-serif,fantasy,monospace;
+  bottom: 10px;
+  left: 2em;
+  font-family: cursive, serif, sans-serif, fantasy, monospace;
 }
 .jun-calendar-date {
   display: inline-block;
   position: absolute;
-  top: 100px;
-  right: 10px;
-  font-family: cursive,serif,sans-serif,fantasy,monospace;
+  bottom: 10px;
+  right: 2em;
+  font-family: cursive, serif, sans-serif, fantasy, monospace;
+}
+.weather{
+  display: inline-block;
+  position: absolute;
+  right: 10%;
+  text-align: center;
+  top:7%;
+  .svg-icon{
+    font-size: 50px;
+  }
 }
 </style>

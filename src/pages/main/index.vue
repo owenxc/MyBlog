@@ -1,7 +1,7 @@
 <template>
   <div id="mainPage_box">
     <div class="articles">
-      <text-render></text-render>
+      <content-info></content-info>
     </div>
     <div class="aside_box">
        <userInfo></userInfo>
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import textRender from "@/components/textRender/index";
+import contentInfo from "./contentInfo";
 import userInfo from "@/pages/userInfo/index";
 import watch from "@/pages/watch"
 export default {
   name: "index",
-  components: { textRender, userInfo,watch },
+  components: { contentInfo, userInfo,watch },
   data() {
     return {};
   },
@@ -33,7 +33,7 @@ export default {
   display: flex;
   justify-content: center;
   .aside_box{
-    width: 300px;
+    min-width: 300px;
     max-width: 360px;
     background: transparent;
     margin:20px 0px 20px 20px;
@@ -41,14 +41,7 @@ export default {
   .articles{
     width: 900px;
     max-width: 1000px;
-    background: #fff;
     margin: 20px 0px;
-    border-radius: 8px;
-    cursor: pointer;
-    &:hover{
-      box-shadow: 0 3px 8px 6px rgba(7,17,27,0.15);
-      transition: all 0.5s;
-    }
   }
 }
 </style>
