@@ -1,22 +1,49 @@
 <template>
-  <div id="content" v-html="initData"></div>
+  <div id="content" v-html="mdContent"></div>
 </template>
 <script>
-import showdown from "showdown";
-export default {
-  props: ["itemInfo"],
-  data() {
-    return {};
+import marked from "marked";
+import hljs from "highlight.js";
+import "highlight.js/styles/gradient-dark.css";
+const rendererMD = new marked.Renderer();
+marked.setOptions({
+  renderer: rendererMD,
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  xhtml: false,
+  highlight: function (code) {
+    return hljs.highlightAuto(code).value;
   },
-  computed: {
-    initData() {
-      let converter = new showdown.Converter();
-      //转换markdown的字符串为html文件
-      let initHtml = converter.makeHtml(this.itemInfo.content);
-      return initHtml;
+});
+export default {
+  props:['itemInfo'],
+  data() {
+    return {
+      mdContent: "",
+    };
+  },
+  created() {
+    this.getBlog();
+  },
+  methods: {
+    getBlog() {
+      let _self = this;
+      _self
+        .request({
+          method: "post",
+          url: "/api/blog/queryById",
+          data: { id:_self.itemInfo.id },
+        })
+        .then((res) => {
+          _self.mdContent = marked(res.data.blog[0].content) || "";
+        });
     },
   },
-  methods: {},
 };
 </script>
 
@@ -33,14 +60,14 @@ export default {
     overflow-x: scroll;
   }
   ul {
-    li{
+    li {
       width: 100%;
       padding: 5px;
-      color:rgb(76,73,72);
+      color: rgb(76, 73, 72);
     }
-    li:before{
-      content:"\27A4   ";
-      color:rgb(93, 109, 204);
+    li:before {
+      content: "\27A4   ";
+      color: rgb(93, 109, 204);
     }
   }
   ul > h1,
@@ -55,7 +82,7 @@ export default {
       padding-left: 20px;
     }
   }
-  p>img{
+  p > img {
     width: 100%;
     height: 100%;
   }

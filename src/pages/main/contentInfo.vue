@@ -8,11 +8,9 @@
              <li><svg-icon icon-class="label"></svg-icon>{{item.tags.join('-')}}</li>
            </ul>
         </div>
-        <div class="pagination">
-           <el-pagination
-            layout="prev, pager, next"
-            :total="total">
-          </el-pagination>
+        <div class="pagination" v-if="isShowPag">
+          <el-button @click="nextPage()" v-if="!isToggleBtn">下一页</el-button>
+          <el-button @click="upPage()" v-if="isToggleBtn">上一页</el-button>
         </div>
     </div>
 </template>
@@ -25,8 +23,20 @@ export default {
   data() {
     return {
         dataList:[],
-        total:0
+        total:0,
+        currentPage:1,
+        isToggleBtn:false
     };
+  },
+  computed:{
+     isShowPag(){
+       let maxPage = Math.ceil(this.total/8) || 1
+       if(maxPage > 1){
+         return true
+       }else{
+         return false
+       }
+     }
   },
   created(){
     this.queryArticleData()
@@ -34,8 +44,8 @@ export default {
   methods:{
      queryArticleData() {
       let params = {
-        currentPage: 1,
-        pageSize: 10,
+        currentPage: this.currentPage,
+        pageSize: 8,
         author: this.$store.state.userInfo.name,
       };
        let _self = this;
@@ -56,8 +66,24 @@ export default {
     },
     //跳转到文章阅读界面
     viewArticle(data){
-      debugger
-      this.$router.push({name:'articleShow',query:data})
+      this.$router.push({name:'articleShow',query:{id:data._id}})
+    },
+    nextPage(){
+     let maxPage = Math.ceil(this.total/8)
+     if(this.currentPage < maxPage){
+        this.currentPage = this.currentPage + 1;
+        this.queryArticleData()
+     }else{
+       this.isToggleBtn = true;
+     }
+    },
+    upPage(){
+      if(this.currentPage > 1){
+        this.currentPage = this.currentPage - 1;
+        this.queryArticleData()
+      }else{
+        this.isToggleBtn = false
+      }
     }
   }
 };
@@ -71,9 +97,18 @@ export default {
   position: relative;
   padding-bottom: 30px;
   .pagination{
+    display: flex;
+    width: 15%;
+    justify-content:space-around;
     position: absolute;
     bottom: 0.5%;
-    left: 50%;
+    left: 41.5%;
+    z-index: 200;
+    i{
+      .svg-icon{
+        font-size: 2em;
+      }
+    }
   }
   .text_item{
     width:48%;

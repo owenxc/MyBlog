@@ -135,7 +135,7 @@ export default {
     },
     //跳转到文章阅读界面
     viewArticle(data){
-      this.$router.push({name:'articleShow',query:data})
+      this.$router.push({name:'articleShow',query:{id:data._id}})
     }
   },
 };

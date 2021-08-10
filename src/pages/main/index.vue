@@ -42,6 +42,7 @@ export default {
     width: 900px;
     max-width: 1000px;
     margin: 20px 0px;
+    height: inherit;
   }
 }
 </style>

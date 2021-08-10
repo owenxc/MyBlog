@@ -64,7 +64,7 @@ export default {
   },
   mounted() {
     this.updateTime();
-    this.getLocationWeather();
+    // this.getLocationWeather();
   },
   methods: {
     updateTime() {

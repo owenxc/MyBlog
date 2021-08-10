@@ -5,7 +5,6 @@
     </div>
     <span class="scrollTop" @click="scrollTop" v-show="showScrollTop">Up</span>
   </div>
-   </div>
 </template>
 <script>
 import showDown from "@/components/showDown/index";

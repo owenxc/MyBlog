@@ -45,6 +45,28 @@ router.post('/getBlogs', (req, res) => {
         }
     })
 })
+//api/blog/queryById
+router.post('/queryById', (req, res) => {
+    let _id = req.body.id
+    Blogs.countDocuments({ _id }, (err, count) => {
+        if (err) { 
+            res.json({ data: { code: 400, msg: `${JSON.stringify(err)}` } }) 
+        }else {
+            Blogs.find({ _id }).then(blog => {
+                    res.json({
+                        data: {
+                            code: 200,
+                            blog,
+                            totalCount: count
+                        }
+                    })
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    })
+})
 //api/blog/deleteBlogs
 router.post('/deleteBlogs', (req, res) => {
     Blogs.deleteOne({ _id: req.body.id})
