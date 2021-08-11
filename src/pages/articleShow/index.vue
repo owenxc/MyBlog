@@ -7,6 +7,7 @@
   </div>
 </template>
 <script>
+import '@/assets/js/ribbon.js'
 import showDown from "@/components/showDown/index";
 export default {
   components: { showDown },

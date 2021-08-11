@@ -4,19 +4,20 @@
       <content-info></content-info>
     </div>
     <div class="aside_box">
-       <userInfo></userInfo>
-       <watch></watch>
+      <userInfo></userInfo>
+      <watch></watch>
     </div>
   </div>
 </template>
 
 <script>
+import '@/assets/js/ribbon.js'
 import contentInfo from "./contentInfo";
 import userInfo from "@/pages/userInfo/index";
-import watch from "@/pages/watch"
+import watch from "@/pages/watch";
 export default {
   name: "index",
-  components: { contentInfo, userInfo,watch },
+  components: { contentInfo, userInfo, watch },
   data() {
     return {};
   },
@@ -29,16 +30,18 @@ export default {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background: #f5f5f5;
+  position: relative;
+  z-index: 2;
+  background: transparent;
   display: flex;
   justify-content: center;
-  .aside_box{
+  .aside_box {
     min-width: 300px;
     max-width: 360px;
     background: transparent;
-    margin:20px 0px 20px 20px;
+    margin: 20px 0px 20px 20px;
   }
-  .articles{
+  .articles {
     width: 900px;
     max-width: 1000px;
     margin: 20px 0px;
