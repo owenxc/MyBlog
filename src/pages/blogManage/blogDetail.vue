@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    title="发布文章"
+    :title="dialogTitle"
     :visible.sync="panelShow"
     width="30%"
     :before-close="handleClose"
@@ -66,22 +66,24 @@
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="handleClose" size="small">取 消</el-button>
-      <el-button type="primary" @click="saveInfo" size="small">发 布</el-button>
+      <el-button type="primary" @click="saveInfo" size="small">{{
+        isUpdate ? "更 新" : "发布"
+      }}</el-button>
     </span>
   </el-dialog>
 </template>
 
 <script>
 export default {
-  props: ["panelShow","itemInfo"],
+  props: ["panelShow", "itemInfo", "dialogTitle", "isUpdate"],
   data() {
     return {
       form: {
-        articleType:this.itemInfo.articleType || "",
+        articleType: this.itemInfo.articleType || "",
         releaseType: this.itemInfo.releaseType || "public",
         articleProfile: this.itemInfo.articleProfile || "",
       },
-      articleTags:this.itemInfo.tags || [],
+      articleTags: this.itemInfo.tags || [],
       inputVisible: false,
       inputValue: "",
       articleTypeList: [
@@ -120,24 +122,29 @@ export default {
     saveInfo() {
       //保存提交文章
       let params = {
-         author:this.$store.state.userInfo.name,
-         content:this.itemInfo.content,
-         articleTitle:this.itemInfo.articleTitle,
-         articleType:this.form.articleType,
-         releaseType:this.form.releaseType,
-         articleProfile:this.form.articleProfile,
-         tags:this.articleTags
+        author: this.$store.state.userInfo.name,
+        content: this.itemInfo.content,
+        articleTitle: this.itemInfo.articleTitle,
+        articleType: this.form.articleType,
+        releaseType: this.form.releaseType,
+        articleProfile: this.form.articleProfile,
+        tags: this.articleTags,
       };
-      this.axios({
-        method:'post',
-        url:'/manage/api/blog/insertblog',
-        data:params
-      }).then(res=>{
-        this.$message.success("发布成功")
-        this.$router.push({path:'/articleManage'})
-      }).catch(err=>{
-        this.$message.error("发布失败")
-      });
+      if(this.isUpdate){
+        params.id = this.itemInfo._id
+      }
+      this.request({
+        method: "post",
+        url: `/api/blog/${this.isUpdate?'update':'insertblog'}`,
+        data: params,
+      })
+        .then((res) => {
+          this.$message.success(this.isUpdate?"更新成功":"发布成功");
+          this.$router.push({ path: "/articleManage" });
+        })
+        .catch((err) => {
+          this.$message.error(this.isUpdate?'更新异常':'发布异常');
+        });
     },
   },
 };

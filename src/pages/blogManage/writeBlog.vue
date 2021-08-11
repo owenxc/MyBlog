@@ -8,10 +8,15 @@
         maxlength="100"
         show-word-limit
       ></el-input>
-       <el-button class="ml-20" type="primary"
-        >保存草稿</el-button>
-      <el-button class="ml-20" type="primary" @click="showDialog('article')"
+      <el-button
+        v-if="!isUpdate"
+        class="ml-20"
+        type="primary"
+        @click="showDialog('insert')"
         >发布文章</el-button
+      >
+      <el-button v-if="isUpdate" class="ml-20" type="primary" @click="showDialog('update')"
+        >更新文章</el-button
       >
     </div>
     <mavon-editor
@@ -20,22 +25,29 @@
       ref="md"
       class="m-10"
     />
-    <blog-detail v-if="panelShow" :itemInfo="itemInfo" :panelShow="panelShow" @handleClose="handleClose"></blog-detail>
+    <blog-detail
+      v-if="panelShow"
+      :itemInfo="itemInfo"
+      :panelShow="panelShow"
+      :dialogTitle="dialogTitle"
+      :isUpdate="isUpdate"
+      @handleClose="handleClose"
+    ></blog-detail>
   </div>
 </template>
 
 <script>
-import blogDetail from "./blogDetail.vue"
+import blogDetail from "./blogDetail.vue";
 export default {
-  components:{blogDetail},
+  components: { blogDetail },
   data() {
     return {
-      panelShow:false,
+      panelShow: false,
       //文章标题
-      articleTitle:"",
+      articleTitle: "",
       //文章内容
       content: "",
-      itemInfo:{},
+      itemInfo: {},
       //富文本编辑器
       toolbars: {
         bold: true, // 粗体
@@ -72,24 +84,43 @@ export default {
         subfield: true, // 单双栏模式
         preview: true, // 预览
       },
+      isUpdate:false,
+      dialogTitle:''
     };
   },
   created() {
-    //编辑博客
-    let data = this.$route.query || ''
-    this.content = data.content || '';
-    this.articleTitle = data.articleTitle || '';
-    this.itemInfo = data
+    let id = this.$route.query.id || ''
+    if(id){
+      this.isUpdate = true
+      this.getBlog(id)
+    }
   },
   methods: {
-    showDialog(type){//显示弹窗
+    showDialog(type) {
+      //显示弹窗
       this.panelShow = true;
       this.itemInfo.content = this.content;
       this.itemInfo.articleTitle = this.articleTitle;
+      this.dialogTitle = this.isUpdate ? '更新文章':'发布文章'
     },
-    handleClose(){
+    handleClose() {
       this.panelShow = false;
-      this.itemInfo = {}
+      this.itemInfo = {};
+    },
+    getBlog(id) {
+      let _self = this;
+      _self
+        .request({
+          method: "post",
+          url: "/api/blog/queryById",
+          data: { id: id },
+        })
+        .then((res) => {
+          let data = res.data.blog[0]
+          _self.content = data.content || "";
+          _self.articleTitle = data.articleTitle || "";
+          _self.itemInfo = data;
+        });
     },
   },
 };
@@ -110,16 +141,16 @@ export default {
       #ff2f50 81%,
       #ff1b40
     );
-    border:0px;
+    border: 0px;
     font-weight: bold;
-    &:hover{
+    &:hover {
       background: linear-gradient(
-      90deg,
-      #ff9a01,
-      #ff503e 34%,
-      #ff2b36 66%,
-      #ff1b40
-    );
+        90deg,
+        #ff9a01,
+        #ff503e 34%,
+        #ff2b36 66%,
+        #ff1b40
+      );
     }
   }
 }
@@ -130,7 +161,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-image: url('../../assets//image/home_top_bg.jpg');
+  background-image: url("../../assets//image/home_top_bg.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;

@@ -40,12 +40,12 @@ export default {
       dataList: [],
       total: 0,
       currentPage: 1,
-      pageSize:4,
+      pageSize:8,
     };
   },
   computed: {
     isShowPag() {
-      let maxPage = Math.ceil(this.total / 4) || 1;
+      let maxPage = Math.ceil(this.total / 8) || 1;
       if (maxPage > 1) {
         return true;
       } else {

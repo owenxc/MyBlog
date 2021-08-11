@@ -131,7 +131,7 @@ export default {
     },
     //跳转到文章编辑界面
     editArticle(data){
-      this.$router.push({name:'writeBlog',query:data})
+      this.$router.push({name:'writeBlog',query:{id:data._id}})
     },
     //跳转到文章阅读界面
     viewArticle(data){
