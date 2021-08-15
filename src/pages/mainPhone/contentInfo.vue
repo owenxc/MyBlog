@@ -56,7 +56,7 @@ export default {
         this.pageSize++;
         this.queryArticleData();
        }
-      },5000)
+      },2000)
     },
     queryArticleData() {
       let params = {
@@ -129,19 +129,23 @@ export default {
     cursor: pointer;
     overflow: hidden;
     color: #333;
+    opacity: 0.7;
     &:hover {
       box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
       transition: all 0.5s;
     }
     .text_Info {
       width: 100%;
+      height: 100%;
       position: absolute;
       left: 0;
-      bottom: 0;
+      top: 0;
       box-sizing: border-box;
-      padding: 0 4% 4%;
+      padding: 4% 4% 4%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
       li {
-        margin-bottom: 5px;
         .svg-icon {
           margin-left: 0px;
         }
