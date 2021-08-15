@@ -5,7 +5,7 @@
   "author": "owen",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline  --progress --config build/webpack.dev.conf.js --hot --open",
+    "serve": "webpack-dev-server --inline  --progress --config build/webpack.dev.conf.js --hot --open",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
@@ -77,6 +77,26 @@
     "not ie <= 8"
   ],
   "main": ".postcssrc.js",
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "globals": {
+      "$": "readonly",
+      "Promise": "readonly"
+    },
+    "rules": {
+      "no-console": 0,
+      "eqeqeq": 0,
+      "no-alert": 2
+    },
+    "extends": "eslint:recommended"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/owenxc/MyProject.git"

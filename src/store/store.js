@@ -9,6 +9,7 @@ const store = new Vuex.Store({
     state:{
         isLogin:false,
         asideDrawer:false,
+        isMobile:false,
         userInfo:{name:'owen',type:'admin'}
     },
     mutations:{
@@ -20,6 +21,9 @@ const store = new Vuex.Store({
         },
         changeUserInfo(state,value){
             state.userInfo = value
+        },
+        changeIsMobile(state,value){
+            state.isMobile = value
         }
     },
     actions:{
@@ -31,6 +35,9 @@ const store = new Vuex.Store({
         },
         actionChangeUserInfo(contex,value){
             contex.commit('changeUserInfo',value)
+        },
+        actionChangeIsMobile(contex,value){
+            contex.commit('changeIsMobile',value)
         }
     }
 })

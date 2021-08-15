@@ -38,8 +38,12 @@
       <span>{{ `农历${timeInfo.calendar}` }}</span>
     </div>
     <div class="weather">
-       <div><svg-icon :icon-class="`weather_${weatherInfo.wid}`"></svg-icon></div>
-       <div><span>{{`${weatherInfo.info} ${weatherInfo.temperature} 度`}}</span></div>
+      <div>
+        <svg-icon :icon-class="`weather_${weatherInfo.wid}`"></svg-icon>
+      </div>
+      <div>
+        <span>{{ `${weatherInfo.info} ${weatherInfo.temperature} 度` }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +60,7 @@ export default {
         calendar: "七月初七",
       },
       humanGif: require("../../assets/image/human.gif"),
-      weatherInfo:{info:'晴',temperature:30,wid:'01'},
+      weatherInfo: { info: "晴", temperature: 30, wid: "01" },
     };
   },
   created() {
@@ -83,7 +87,7 @@ export default {
         method: "GET",
         url: "/weather/simpleWeather/query?city=深圳&key=6e205ef9a3daf12b5a0492e870b1706d",
       }).then((res) => {
-        this.weatherInfo = res.data.result.realtime 
+        this.weatherInfo = res.data.result.realtime
       });
     },
   },
@@ -161,13 +165,13 @@ export default {
   right: 2em;
   font-family: cursive, serif, sans-serif, fantasy, monospace;
 }
-.weather{
+.weather {
   display: inline-block;
   position: absolute;
   right: 10%;
   text-align: center;
-  top:7%;
-  .svg-icon{
+  top: 7%;
+  .svg-icon {
     font-size: 50px;
   }
 }

@@ -1,9 +1,12 @@
 <template>
   <div class="articleShow_box">
-    <div class="content_box">
+    <div class="content_box" v-if="!isMobile">
       <show-down :itemInfo="itemInfo"></show-down>
     </div>
-    <span class="scrollTop" @click="scrollTop" v-show="showScrollTop">Up</span>
+    <div class="content_box mobileStyle" v-if="isMobile">
+      <show-down :itemInfo="itemInfo"></show-down>
+    </div>
+    <span  class="scrollTop" @click="scrollTop" v-show="showScrollTop">Up</span>
   </div>
 </template>
 <script>
@@ -22,6 +25,11 @@ export default {
   },
   created() {
     this.itemInfo = this.$route.query;
+  },
+  computed:{
+    isMobile(){
+      return this.$store.state.isMobile
+    }
   },
   methods: {
     scrollTopBtn() {
@@ -70,6 +78,9 @@ export default {
     &:hover {
       box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
     }
+  }
+  .mobileStyle{
+    width: 90%;
   }
 }
 .scrollTop {

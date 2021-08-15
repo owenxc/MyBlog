@@ -2,13 +2,17 @@
   <div id="header_box">
     <div :class="navStyle">
       <el-button
+        v-if="!isMobile"
         icon="el-icon-s-unfold"
         size="small"
         class="menu-button"
         @click="showPanel"
         >MENU</el-button
       >
-      <ul class="header_nav">
+      <span v-if="isMobile">辉腾博客</span>
+      <!-- <el-input v-if="isMobile&&isShowSearch" class="inputStyle" v-model="inputSearch" placeholder="搜索"></el-input> -->
+      <i v-if="isMobile" class="mobile" @click="showPanel"><svg-icon icon-class="mobile_menu"></svg-icon></i>
+      <ul class="header_nav" v-if="!isMobile">
         <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
@@ -35,15 +39,21 @@
 import mainAsider from "@/pages/asider/index";
 export default {
   components: { mainAsider },
+  inject:["reload"],
   data() {
     return {
       activeIndex: "/main",
-      styleClass:['navbar']
+      styleClass:['navbar'],
+      inputSearch:"",
+      isShowSearch:false
     };
   },
   computed: {
      navStyle(){
        return this.styleClass
+     },
+     isMobile(){
+       return this.$store.state.isMobile
      }
   },
   mounted() {
@@ -61,10 +71,12 @@ export default {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       if(scrollTop > 240){
         this.styleClass = ['navbar','scroll']
+        this.isShowSearch = true;
       }else{
         this.styleClass = ['navbar']
+        this.isShowSearch = false;
       }
-    }
+    },
   },
 };
 </script>
@@ -143,5 +155,24 @@ export default {
     border-color:#fff;
     transition: all 0.4s;
     box-shadow: 0px 2px 4px 0px rgba(224, 214, 214, 0.08);
+}
+.mobile{
+  .svg-icon{
+    font-size: 2em;
+  }
+}
+.inputStyle{
+  .el-input__inner{
+    width: 80%;
+    height: 2.5em;
+    line-height: 100%;
+    background-color: transparent;
+    border-color:gray;
+    opacity: 0.8;
+    &:focus{
+      border-color: skyblue;
+      opacity: 1;
+    }
+  }
 }
 </style>

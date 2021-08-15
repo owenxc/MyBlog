@@ -2,6 +2,7 @@ import VueRouter from 'vue-router'
 
 const mainPage = resolve => require(["@/pages/mainPage"], resolve);
 const main = resolve => require(["@/pages/main/index"], resolve);
+const mainPhone = resolve => require(["@/pages/mainPhone/index"], resolve);
 const blogManage = resolve => require(["@/pages/blogManage"], resolve);
 const writeBlog = resolve => require(["@/pages/blogManage/writeBlog"], resolve);
 const articleManage = resolve => require(["@/pages/blogManage/articleManage"], resolve);
@@ -14,6 +15,7 @@ const routers = [
     path: '/mainPage', name: 'mainPage', component: mainPage,
     children: [
       { path: '/main',name:'main', component: main },
+      { path: '/mainPhone',name:'main', component: mainPhone },
       { path:'/articleShow',name:'articleShow',component:articleShow}
     ]
   },
